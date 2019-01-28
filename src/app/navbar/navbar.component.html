@@ -1,0 +1,78 @@
+<div style="height: 10vh;">
+
+    <mat-toolbar>
+  
+        <a mat-button routerLink="/home" class= "mat-link">
+          <img src="/assets/images/logo.png" alt="logo" class="logo"></a>
+  
+      <span class="example-spacer"></span>
+  
+      <div fxShow="true" fxHide.lt-md="true">
+  
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+  
+        
+  
+        <a routerLink="/home" mat-button class="mat-link"><i class="fa fa-home"></i> Home</a>
+  
+        <a routerLink="/standings" mat-button class="mat-link"><i class="fa fa-trophy"></i> Standings</a>
+  
+      </div>
+  
+      <div fxShow="true" fxHide.gt-sm="true">
+  
+        <button (click)="sidenav.toggle()"><i class="fa fa-bars"></i></button>
+  
+      </div>
+  
+    </mat-toolbar>
+  
+    <mat-sidenav-container fxFlexFill class="example-container">
+  
+      <mat-sidenav #sidenav fxLayout="column">
+  
+        <div fxLayout="column">
+  
+          <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
+  
+          <a href="#" mat-button>Menu Item 1</a>
+  
+          <a href="#" mat-button>Menu Item 2</a>
+  
+          <a href="#" mat-button>Menu Item 3</a>
+  
+          <a href="#" mat-button>Menu Item 4</a>
+  
+          <a href="#" mat-button>Menu Item 5</a>
+  
+          <a href="#" mat-button>Menu Item 6</a>
+  
+        </div>
+  
+      </mat-sidenav>
+  
+    </mat-sidenav-container>
+  
+  </div>
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+  <a class="navbar-brand" routerLink="/home">
+    <img src="/assets/images/logo.png" alt="logo" class="logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item" routerLinkActive='active'>
+        <a class="nav-link" routerLink="/home"><i class="fa fa-home"></i>Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive='active'>
+        <a class="nav-link" routerLink="/standings"><i class="fa fa-trophy"></i> Standings</a>
+      </li>
+      <li class="nav-item" routerLinkActive='active'>
+        <a class="nav-link" routerLink="/schedule"><i class="fa fa-calendar"></i> Schedule</a>
+      </li>
+      <li class="nav-item" routerLinkActive='active'>
+        <a class="nav-link" routerLink="/teams"><i class="fa fa-users"></i> Teams</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
