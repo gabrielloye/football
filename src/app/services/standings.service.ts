@@ -20,5 +20,11 @@ export class StandingsService {
     httpOptions.headers = 
     httpOptions.headers.set('X-Auth-Token','e19fdf16497e43a4ad3141d5daf3caff')
     return this.http.get('http://api.football-data.org/v2/competitions/PL/standings', httpOptions)
+  };
+
+  getTeams(): Observable<any> {
+    httpOptions.headers = 
+    httpOptions.headers.set('X-Auth-Token','e19fdf16497e43a4ad3141d5daf3caff')
+    return this.http.get('http://api.football-data.org/v2/competitions/PL/teams', httpOptions)
   }
 }

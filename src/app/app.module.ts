@@ -12,18 +12,22 @@ import { AppComponent } from './app.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { StandingsComponent } from './standings/standings.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
+import { TeamsComponent } from './teams/teams.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarouselComponent,
     StandingsComponent,
-    NavbarComponent,
     HomeComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    MainNavComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,11 @@ import { ScheduleComponent } from './schedule/schedule.component';
     MatToolbarModule,
     FlexLayoutModule,
     MatSidenavModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
