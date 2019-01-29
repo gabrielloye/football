@@ -1,6 +1,14 @@
 body {
     margin: 0
 }
+
+.highlight {
+    background-color: black;
+    border: 1px solid black;
+    z-index: 1;
+    transform: scale(1.01);
+    cursor: pointer;
+}
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import 'variables';

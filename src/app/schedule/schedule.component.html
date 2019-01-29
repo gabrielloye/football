@@ -1,3 +1,38 @@
-<p>
-  schedule works!
-</p>
+<div class="container">
+  <h2>Current Matchday: {{matchday}}</h2>
+  <h3>Top Scorers:</h3>
+  <mat-table [dataSource]="scorers">
+    <ng-container matColumnDef="numberOfGoals">
+      <mat-header-cell *matHeaderCellDef> Goals </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.numberOfGoals}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="team">
+      <mat-header-cell *matHeaderCellDef> Club </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.team.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="player">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.player.name}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span>Scheduled Matches</span>
+      </ng-template>
+      <ng-template matTabContent>
+        <app-upcoming *ngIf="matchday" [matchday]='matchday'></app-upcoming>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+      <span>Results</span>
+      </ng-template>
+      <ng-template matTabContent>
+        The First Content
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

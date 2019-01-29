@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-md-4 text-center">
+      <img src="{{team.crestUrl}}" alt="">
+        <p>Team Name: {{team.name}}</p>
+        <p>Address: {{team.address}}</p>
+        <p>Last Updated: {{team.lastUpdated | date}}</p>
+    </div>
+    <div class="col-md-6">
+      <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <span><i class="fa fa-hand-paper-o"></i> Goalkeepers</span>
+          </ng-template>
+          <ng-template ngbPanelContent> 
+            <div *ngFor="let player of team.squad">
+              <p *ngIf="player.position=='Goalkeeper'">{{player.shirtNumber}} {{player.name}}</p>
+            </div>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <span><i class="fa fa-shield"></i> Defenders</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div *ngFor="let player of team.squad">
+              <p *ngIf="player.position=='Defender'"><i class="fa fa-shirtsinbulk"></i>{{player.shirtNumber}} {{player.name}}</p>
+            </div>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <span><i class="fa fa-futbol-o"></i> Midfielders</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div *ngFor="let player of team.squad">
+              <p *ngIf="player.position=='Midfielder'">{{player.shirtNumber}} {{player.name}}</p>
+            </div>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <span><i class="fa fa-crosshairs"></i> Forwards</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div *ngFor="let player of team.squad">
+              <p *ngIf="player.position=='Attacker'">{{player.shirtNumber}} {{player.name}}</p>
+            </div>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div> 
+  </div>
+</div>

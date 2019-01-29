@@ -1,14 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="row">
-      <div class="col-xs-1-12"  *ngFor="let team of teams">
-        <div class="card">
-          <img src="{{team.crestUrl}}" alt="">
-          <div class="card-body">
-            
-            <h3 class="card-title">Title</h3>
-            <p class="card-text">Text</p>
-          </div>
+  <div class="row justify-content-center">
+    <div class="col-xs-1-12"  *ngFor="let team of teams">
+      <div class="card" [routerLink]="['/teamdetails',team.id]" appHighlight>
+        <img src="{{team.crestUrl}}" alt="">
+        <div class="card-body">
+          
+          <h3 class="card-title">{{team.shortName}}</h3>
+          <p class="card-text"></p>
         </div>
       </div>
     </div>

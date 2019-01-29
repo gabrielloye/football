@@ -5,12 +5,14 @@ import { StandingsComponent } from './standings/standings.component'
 import { HomeComponent } from './home/home.component'
 import { ScheduleComponent } from './schedule/schedule.component'
 import { TeamsComponent } from './teams/teams.component'
+import { TeamdetailsComponent } from './teamdetails/teamdetails.component'
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'standings', component: StandingsComponent },
   { path: 'schedule', component: ScheduleComponent},
   { path: 'teams', component: TeamsComponent},
+  { path: 'teamdetails/:id', component: TeamdetailsComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

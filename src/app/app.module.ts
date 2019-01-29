@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,12 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule, MatIconModule, MatListModule } from '@angular/material';
 import { TeamsComponent } from './teams/teams.component';
+import { TeamdetailsComponent } from './teamdetails/teamdetails.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatTableModule } from '@angular/material/table';
+import { UpcomingComponent } from './upcoming/upcoming.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -27,7 +34,10 @@ import { TeamsComponent } from './teams/teams.component';
     HomeComponent,
     ScheduleComponent,
     MainNavComponent,
-    TeamsComponent
+    TeamsComponent,
+    TeamdetailsComponent,
+    HighlightDirective,
+    UpcomingComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,11 @@ import { TeamsComponent } from './teams/teams.component';
     LayoutModule,
     MatButtonModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    NgbAccordionModule,
+    MatTabsModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

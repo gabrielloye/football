@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StandingsService } from '../services/standings.service' 
 
 @Component({
   selector: 'app-schedule',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor() { }
+  scorers: any;
+  matchday: number;
+  displayedColumns: string[] = ['player', 'team', 'numberOfGoals'];
+  index = Array.from({length: 5}, (v, k) => k+1); 
+
+  constructor(private http: StandingsService) { }
 
   ngOnInit() {
+    this.http.getTopScorers(3)
+    .subscribe(object => {this.scorers=object.scorers;
+      this.matchday=object.season.currentMatchday;
+    })
+    
   }
 
 }

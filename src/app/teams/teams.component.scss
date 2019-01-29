@@ -2,7 +2,7 @@
     width:100%;
 }
 .card {
-    margin: 5px 5px;
+    margin: 10px 10px;
     height: 18em;
     width: 12em;
     background-color: burlywood;
@@ -11,4 +11,10 @@ img {
     height: 10em;
     width: auto;
     margin: 1em auto;
+}
+.card-body {
+    width:100%;
+}
+.card-title {
+    margin: 0 auto;
 }

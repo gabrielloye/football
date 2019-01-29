@@ -1,0 +1,10 @@
+mat-card {
+    height:200px;
+    width: 200px;
+    display:inline-flex;
+    margin: 2em;
+    flex-direction: column;
+    mat-card-title{
+        font-size: 1em;
+    }
+}

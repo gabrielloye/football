@@ -1,0 +1,24 @@
+<div class="container text-center">
+  <mat-card *ngFor="let match of matches">
+    <mat-card-title>
+      {{match.utcDate | date:'medium'}}
+    </mat-card-title>
+    <mat-card-content>
+      {{match.homeTeam.name}} vs {{match.awayTeam.name}}
+    </mat-card-content>
+  </mat-card><br>
+</div>
+<div *ngIf="morematches!=undefined">
+  <div *ngFor="let matchs of morematches">
+    <mat-card *ngFor="let match of matchs">
+      <mat-card-title>
+        {{match.utcDate | date:'medium'}}
+      </mat-card-title>
+      <mat-card-content>
+        {{match.homeTeam.name}} vs {{match.awayTeam.name}}
+      </mat-card-content>
+    </mat-card><br>
+  </div>
+  
+</div>
+<button (click)="loadMoreMatches()">View more Matches</button>
