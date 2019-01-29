@@ -3,7 +3,7 @@
     <div class="col-xs-1-12"  *ngFor="let team of teams">
       <div class="card" [routerLink]="['/teamdetails',team.id]" appHighlight>
         <img src="{{team.crestUrl}}" alt="">
-        <div class="card-body">
+        <div class="card-body text-center">
           
           <h3 class="card-title">{{team.shortName}}</h3>
           <p class="card-text"></p>

@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'X-Auth-Token':  'e19fdf16497e43a4ad3141d5daf3caff'
+    'X-Auth-Token':  'e19fdf16497e43a4ad3141d5daf3caff',
+    'X-Response-Control': 'Access-Control-Allow-Origin'
   })
 };
 
