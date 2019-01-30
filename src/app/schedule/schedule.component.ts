@@ -16,7 +16,7 @@ export class ScheduleComponent implements OnInit {
   constructor(private http: StandingsService) { }
 
   ngOnInit() {
-    this.http.getTopScorers(3)
+    this.http.getTopScorers(5)
     .subscribe(object => {this.scorers=object.scorers;
       this.matchday=object.season.currentMatchday;
     })

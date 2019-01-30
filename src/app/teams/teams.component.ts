@@ -13,7 +13,7 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit() {
     this.httpService.getTeams()
-    .subscribe(info=>{this.teams=info.teams; console.log(this.teams)})
+    .subscribe(info=>{this.teams=info.teams;})
   }
 
 }

@@ -1,0 +1,38 @@
+<div *ngIf="results" class="container text-center">
+  <h1>Gameweek {{results[0].matchday}}</h1>
+  <mat-card *ngFor="let match of results">
+    <mat-card-title>
+      {{match.utcDate | date:'medium'}}
+    </mat-card-title>
+    <mat-card-content>
+      {{match.homeTeam.name}} vs {{match.awayTeam.name}}
+      {{match.homeTeam.position}} vs {{match.awayTeam.position}}
+      <img src="{{match.homeTeam.crestUrl}}" alt="">
+      <img src="{{match.awayTeam.crestUrl}}" alt="">
+      <p>{{match.score.fullTime.homeTeam}} - {{match.score.fullTime.awayTeam}}</p>
+    </mat-card-content>
+  </mat-card><br>
+</div>
+<div [hidden]="results" class="spinner text-center">
+    <mat-spinner></mat-spinner><h4>Loading...</h4>
+</div>
+<div *ngIf="moreresults!=undefined" class="container text-center">
+  <div *ngFor="let matchs of moreresults">
+    <h1>Gameweek {{matchs[0].matchday}}</h1>
+    <mat-card *ngFor="let match of matchs">
+      <mat-card-title>
+        {{match.utcDate | date:'medium'}}
+      </mat-card-title>
+      <mat-card-content>
+        {{match.homeTeam.name}} vs {{match.awayTeam.name}}
+        {{match.homeTeam.position}} vs {{match.awayTeam.position}}
+      <img src="{{match.homeTeam.crestUrl}}" alt="">
+      <img src="{{match.awayTeam.crestUrl}}" alt="">
+      <p>{{match.score.fullTime.homeTeam}} - {{match.score.fullTime.awayTeam}}</p>
+      </mat-card-content>
+    </mat-card><br>
+  </div> 
+</div>
+<div *ngIf="results" class="text-center">
+    <button mat-button (click)="loadMoreResults()"><i class="fa fa-chevron-circle-down"></i><br>View more Matches</button>
+</div>

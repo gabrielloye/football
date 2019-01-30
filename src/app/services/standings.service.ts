@@ -43,10 +43,15 @@ export class StandingsService {
 
   getSchedule(matchday: number) {
     httpOptions.headers = 
-    httpOptions.headers.set('X-Auth-Token','e19fdf16497e43a4ad3141d5daf3caff')
+    httpOptions.headers.set('X-Auth-Token','d256c8829c5f44d195b07dcb46e4fc91')
     const link = 'http://api.football-data.org/v2/competitions/PL/matches?status=SCHEDULED&matchday=' + matchday;
     return this.http.get(link, httpOptions)
   }
 
-  //getResult(matchday: number)
+  getResult(matchday: number) {
+    httpOptions.headers = 
+    httpOptions.headers.set('X-Auth-Token','d256c8829c5f44d195b07dcb46e4fc91')
+    const link = 'http://api.football-data.org/v2/competitions/PL/matches?status=FINISHED&matchday=' + matchday;
+    return this.http.get(link, httpOptions)
+  }
 }

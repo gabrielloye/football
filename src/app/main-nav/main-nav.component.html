@@ -10,7 +10,7 @@
       <a mat-list-item routerLink="/home"><i class="fa fa-home"></i> Home</a>
       <a mat-list-item routerLink="/standings"><i class="fa fa-trophy"></i>  Standings</a>
       <a mat-list-item routerLink="/schedule"><i class="fa fa-calendar"></i>  Schedule</a>
-      <a mat-list-item><i class="fa fa-users"></i>  Teams</a>
+      <a mat-list-item routerLink="/teams"><i class="fa fa-users"></i>  Teams</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -27,13 +27,13 @@
       <a class="navbar-brand" routerLink="/home">
         <img src="/assets/images/logo.png" alt="logo" class="logo"></a>
       <div class="tools" *ngIf="!(isHandset$ | async)">
-        <a routerLink="/home"><i class="fa fa-home"></i> Home</a>
+        <a routerLinkActive="highlighted" routerLink="/home"><i class="fa fa-home"></i> Home</a>
         <span class="divider">|</span>
-        <a routerLink="/standings"><i class="fa fa-trophy"></i> Standings</a>
+        <a routerLinkActive="highlighted" routerLink="/standings"><i class="fa fa-trophy"></i> Standings</a>
         <span class="divider">|</span>
-        <a routerLink="/schedule"><i class="fa fa-calendar"></i> Schedule</a>
+        <a routerLinkActive="highlighted" routerLink="/schedule"><i class="fa fa-calendar"></i> Schedule</a>
         <span class="divider">|</span>
-        <a routerLink="/teams"><i class="fa fa-users"></i> Teams</a>
+        <a routerLinkActive="highlighted" routerLink="/teams"><i class="fa fa-users"></i> Teams</a>
       </div>
       
     </mat-toolbar>

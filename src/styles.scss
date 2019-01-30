@@ -9,6 +9,14 @@ body {
     transform: scale(1.01);
     cursor: pointer;
 }
+
+body {
+    background-color:black;
+}
+@font-face {
+    font-family: Elianto-Regular;
+    src: url(assets/font/Elianto-Regular.otf) format("opentype");
+  }
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import 'variables';

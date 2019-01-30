@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="teams" class="container">
   <div class="row justify-content-center">
     <div class="col-xs-1-12"  *ngFor="let team of teams">
       <div class="card" [routerLink]="['/teamdetails',team.id]" appHighlight>
@@ -6,9 +6,11 @@
         <div class="card-body text-center">
           
           <h3 class="card-title">{{team.shortName}}</h3>
-          <p class="card-text"></p>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div [hidden]="teams" class="spinner text-center">
+  <mat-spinner></mat-spinner><h4>Loading...</h4>
 </div>

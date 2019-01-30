@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="team" class="container">
   <div class="row justify-content-between">
     <div class="col-md-4 text-center">
       <img src="{{team.crestUrl}}" alt="">
@@ -51,4 +51,7 @@
       </ngb-accordion>
     </div> 
   </div>
+</div>
+<div [hidden]="team" class="spinner text-center">
+  <mat-spinner></mat-spinner><h4>Loading...</h4>
 </div>

@@ -1,0 +1,28 @@
+<form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+  <p>
+    <mat-form-field class="names">
+      <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
+      <mat-error *ngIf="formErrors.firstname">{{formErrors.firstname}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="names">
+      <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
+      <mat-error *ngIf="formErrors.lastname">{{formErrors.lastname}}</mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="names">
+      <input matInput formControlName="email" placeholder="Email" type="text" required email>
+      <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+    </mat-form-field>
+    <span class="names">Rating: 
+      <mat-slider matInput formControlName="rating" min="1" max="5" thumbLabel tickInterval="1"></mat-slider>
+    </span>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <textarea matInput formControlName="feedback" placeholder="Your Feedback" rows="10" required></textarea>
+      <mat-error *ngIf="formErrors.feedback">{{formErrors.feedback}}</mat-error>
+    </mat-form-field>
+  </p>
+  <button [disabled]=fform.form.invalid type="submit" mat-button class="background-primary">Submit</button>
+</form>

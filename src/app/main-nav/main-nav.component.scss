@@ -11,7 +11,7 @@
 }
 
 mat-toolbar{
-  background-color: #0D4D4D;
+  background-color: rgb(17, 85, 85);
   height: 4rem;
 }
 
@@ -50,4 +50,10 @@ mat-toolbar a {
 .divider {
   color: aqua;
   font-size:2rem;
+}
+.highlighted {
+  border-bottom: 0.2em solid aqua;
+  z-index: 1;
+  transform: scale(1.1);
+  //padding-bottom: 0.5em;
 }

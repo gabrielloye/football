@@ -1,6 +1,5 @@
-<div class="container">
-  <h2>Current Matchday: {{matchday}}</h2>
-  <h3>Top Scorers:</h3>
+<div class="container text-center" *ngIf="matchday && scorers">
+  <h3>Current Matchday: {{matchday}}</h3>
   <mat-table [dataSource]="scorers">
     <ng-container matColumnDef="numberOfGoals">
       <mat-header-cell *matHeaderCellDef> Goals </mat-header-cell>
@@ -17,10 +16,11 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+  <br>
   <mat-tab-group mat-align-tabs="center">
     <mat-tab>
       <ng-template mat-tab-label>
-        <span>Scheduled Matches</span>
+        <span class="tab-label">Scheduled Matches</span>
       </ng-template>
       <ng-template matTabContent>
         <app-upcoming *ngIf="matchday" [matchday]='matchday'></app-upcoming>
@@ -28,11 +28,14 @@
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>
-      <span>Results</span>
+      <span class="tab-label">Results</span>
       </ng-template>
       <ng-template matTabContent>
-        The First Content
+        <app-results *ngIf="matchday" [matchday]="matchday"></app-results>
       </ng-template>
     </mat-tab>
   </mat-tab-group>
+</div>
+<div [hidden]="matchday && scorers" class="spinner text-center">
+  <mat-spinner></mat-spinner><h4>Loading...</h4>
 </div>
