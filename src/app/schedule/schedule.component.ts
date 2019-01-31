@@ -12,6 +12,7 @@ export class ScheduleComponent implements OnInit {
   matchday: number;
   displayedColumns: string[] = ['player', 'team', 'numberOfGoals'];
   index = Array.from({length: 5}, (v, k) => k+1); 
+  errMess: string;
 
   constructor(private http: StandingsService) { }
 
@@ -19,7 +20,7 @@ export class ScheduleComponent implements OnInit {
     this.http.getTopScorers(5)
     .subscribe(object => {this.scorers=object.scorers;
       this.matchday=object.season.currentMatchday;
-    })
+    },errmess => this.errMess = <any>errmess)
     
   }
 

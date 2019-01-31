@@ -12,7 +12,7 @@ import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { StandingsComponent } from './standings/standings.component';
 import { HomeComponent } from './home/home.component';
@@ -70,7 +70,8 @@ import {MatInputModule} from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    NgbModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

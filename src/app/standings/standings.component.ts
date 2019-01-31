@@ -11,6 +11,8 @@ export class StandingsComponent implements OnInit {
   standings: any;
   topTeamIds = [64, 65, 73, 61, 57, 66]
   placing={};
+  errMess:string;
+
   constructor(private standingsService: StandingsService) { }
 
   ngOnInit() {
@@ -23,6 +25,6 @@ export class StandingsComponent implements OnInit {
           }
         }
         
-      };})   
+      };},errmess => this.errMess = <any>errmess)   
   }
 }

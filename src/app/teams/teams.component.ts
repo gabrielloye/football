@@ -9,11 +9,14 @@ import { StandingsService } from '../services/standings.service'
 export class TeamsComponent implements OnInit {
 
   teams: any;
+  errMess:string;
+  
   constructor(private httpService: StandingsService) { }
 
   ngOnInit() {
     this.httpService.getTeams()
-    .subscribe(info=>{this.teams=info.teams;})
+    .subscribe(info=>{this.teams=info.teams;},
+    errmess => this.errMess = <any>errmess)
   }
 
 }

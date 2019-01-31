@@ -11,14 +11,24 @@ export class UpcomingComponent implements OnInit {
   @Input() matchday: number;
   matches: any[];
   morematches = [];
+  errMess:string;
 
   constructor(private http: StandingsService) { 
     
   }
 
   ngOnInit() {
+    this.LoadCurrent()
+  }
+
+  LoadCurrent() {
     this.http.getSchedule(this.matchday)
     .subscribe(schedule=>{
+      if (schedule['count']===0){
+        this.matchday+=1
+        this.LoadCurrent()
+        return;
+      }
   this.http.getStandings().subscribe(standings=>{
     var x;
     var y;
@@ -33,7 +43,8 @@ export class UpcomingComponent implements OnInit {
         }
       }
     }
-  }); this.matches = schedule['matches'];})
+  }); this.matches = schedule['matches'];
+},errmess => this.errMess = <any>errmess)
   }
 
   loadMoreMatches() {
@@ -54,6 +65,7 @@ export class UpcomingComponent implements OnInit {
         }
       }
     }
-  }); this.morematches.push(schedule['matches']);})
+  }); this.morematches.push(schedule['matches']);},
+  errmess => this.errMess = <any>errmess)
   }
 }

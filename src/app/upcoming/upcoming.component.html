@@ -5,36 +5,75 @@
       {{match.utcDate | date:'medium'}}
     </mat-card-title>
     <mat-card-content>
-      <div fxLayout="row">
-        <div fxFlex>
-          <img src="{{match.homeTeam.crestUrl}}" alt=""> <br>{{match.homeTeam.name}} <br>Curent Position: {{match.homeTeam.position}}
+      <div fxLayout="column" fxLayoutGap="0.5em">
+        <div fxLayout="row"
+        fxLayoutGap="1em">
+          <div fxFlex [routerLink]="['/teamdetails',match.homeTeam.id]" appHighlight>
+            <img src="{{match.homeTeam.crestUrl}}" alt=""><br>
+            <p>{{match.homeTeam.name}}</p>
+          </div>
+          <span>vs</span>
+          <div fxFlex [routerLink]="['/teamdetails',match.homeTeam.id]" appHighlight>
+            <img src="{{match.awayTeam.crestUrl}}" alt=""><br>
+            <p>{{match.awayTeam.name}}</p>
+          </div>
         </div>
-        vs
-        <div fxFlex>
-          <img src="{{match.awayTeam.crestUrl}}" alt=""><br> {{match.awayTeam.name}}<br>Curent Position: {{match.awayTeam.position}}
+        <div fxLayout="row"
+        fxLayoutGap="1.5em">
+          <div fxFlex class="position">
+            <p>League Position {{match.homeTeam.position}}</p> 
+          </div>
+          <div fxFlex class="position">
+            <p>League Position {{match.awayTeam.position}}</p>
+          </div>
         </div>
       </div>
     </mat-card-content>
   </mat-card><br>
 </div>
-<div [hidden]="matches" class="spinner text-center">
+<div [hidden]="matches||errMess" class="spinner text-center">
   <mat-spinner></mat-spinner><h4>Loading...</h4>
 </div>
 <div *ngIf="morematches!=undefined" class="container text-center">
   <div *ngFor="let matchs of morematches">
-    <h1>Gameweek {{matchs[0].matchday}}</h1>
+    <h2>Gameweek {{matchs[0].matchday}}</h2>
     <mat-card *ngFor="let match of matchs">
       <mat-card-title>
-        {{match.utcDate | date:'medium'}}
+          {{match.utcDate | date:'medium'}}
       </mat-card-title>
       <mat-card-content>
-        {{match.homeTeam.name}} vs {{match.awayTeam.name}}
-        {{match.homeTeam.position}} vs {{match.awayTeam.position}}
-      <img src="{{match.homeTeam.crestUrl}}" alt="">
-      <img src="{{match.awayTeam.crestUrl}}" alt="">
+        <div fxLayout="column" fxLayoutGap="0.5em">
+          <div fxLayout="row"
+          fxLayoutGap="1em">
+            <div fxFlex [routerLink]="['/teamdetails',match.homeTeam.id]" appHighlight>
+              <img src="{{match.homeTeam.crestUrl}}" alt=""><br>
+              <p>{{match.homeTeam.name}}</p>
+            </div>
+            <span>vs</span>
+            <div fxFlex [routerLink]="['/teamdetails',match.homeTeam.id]" appHighlight>
+              <img src="{{match.awayTeam.crestUrl}}" alt=""><br>
+              <p>{{match.awayTeam.name}}</p>
+            </div>
+          </div>
+          <div fxLayout="row"
+          fxLayoutGap="1.5em">
+            <div fxFlex fxLayout class="position">
+              <p>Curent Position {{match.homeTeam.position}}</p> 
+            </div>
+            <div fxFlex class="position">
+              <p>Curent Position {{match.awayTeam.position}}</p>
+            </div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card><br>
   </div> 
+</div>
+<div *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
+  <p>You're probably browsing too fast (refer to Home page: Disclaimer)</p>
+  <h2>Reload Page</h2>
 </div>
 <div *ngIf="matches" class="text-center">
     <button mat-button (click)="loadMoreMatches()"><i class="fa fa-chevron-circle-down"></i><br>View more Matches</button>

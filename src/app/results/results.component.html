@@ -1,24 +1,44 @@
 <div *ngIf="results" class="container text-center">
-  <h1>Gameweek {{results[0].matchday}}</h1>
+  <h2>Gameweek {{results[0].matchday}}</h2>
   <mat-card *ngFor="let match of results">
     <mat-card-title>
       {{match.utcDate | date:'medium'}}
     </mat-card-title>
     <mat-card-content>
-      {{match.homeTeam.name}} vs {{match.awayTeam.name}}
-      {{match.homeTeam.position}} vs {{match.awayTeam.position}}
-      <img src="{{match.homeTeam.crestUrl}}" alt="">
-      <img src="{{match.awayTeam.crestUrl}}" alt="">
-      <p>{{match.score.fullTime.homeTeam}} - {{match.score.fullTime.awayTeam}}</p>
+      <div fxLayout="column" fxLayoutGap="0.5em">
+        <div fxLayout="row"
+        fxLayoutGap="1em">
+          <div fxFlex [routerLink]="['/teamdetails',match.homeTeam.id]" appHighlight>
+            <img src="{{match.homeTeam.crestUrl}}" alt=""><br>
+            <p>{{match.homeTeam.name}}</p>
+          </div>
+          <span>vs</span>
+          <div fxFlex [routerLink]="['/teamdetails',match.homeTeam.id]" appHighlight>
+            <img src="{{match.awayTeam.crestUrl}}" alt=""><br>
+            <p>{{match.awayTeam.name}}</p>
+          </div>
+        </div>
+        <div fxLayout="row"
+        fxLayoutGap="1em" class="score-container">
+          <div fxFlex class="score">
+            <p>{{match.score.fullTime.homeTeam}}</p> 
+          </div>
+          <span>---</span>
+          <div fxFlex class="score">
+            <p>{{match.score.fullTime.awayTeam}}</p>
+          </div>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card><br>
 </div>
-<div [hidden]="results" class="spinner text-center">
+<div [hidden]="results || errMess" class="spinner text-center">
     <mat-spinner></mat-spinner><h4>Loading...</h4>
 </div>
+
 <div *ngIf="moreresults!=undefined" class="container text-center">
   <div *ngFor="let matchs of moreresults">
-    <h1>Gameweek {{matchs[0].matchday}}</h1>
+    <h2>Gameweek {{matchs[0].matchday}}</h2>
     <mat-card *ngFor="let match of matchs">
       <mat-card-title>
         {{match.utcDate | date:'medium'}}
@@ -32,6 +52,12 @@
       </mat-card-content>
     </mat-card><br>
   </div> 
+</div>
+<div *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
+  <p>You're probably browsing too fast (refer to Home page: Disclaimer)</p>
+  <h2>Reload Page</h2>
 </div>
 <div *ngIf="results" class="text-center">
     <button mat-button (click)="loadMoreResults()"><i class="fa fa-chevron-circle-down"></i><br>View more Matches</button>

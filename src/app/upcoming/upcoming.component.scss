@@ -1,6 +1,6 @@
 h2 {
     margin-top: 0.7em;
-    font-family: Helvetica;
+    font-family: Montserrat, Georgia, serif;
     border: 0.08em solid gold;
     background-color:black;
     color:white;
@@ -12,24 +12,41 @@ h2 {
 }
 
 mat-card {
-    height:13em;
+    height:16em;
     width: 18em;
     display:inline-flex;
     margin: 1.2em;
     flex-direction: column;
     border-radius: 10%;
+    background-color: rgba(0, 217, 255, 0.082);
     mat-card-title{
         font-size: 1em;
+        background-color:rgb(17, 85, 85);
+        border-radius:15%;
+        color: rgb(208, 255, 0);
+        padding: 0.2em;
+        border: 0.12em solid black;
+        font-family: 'Roboto', Helvetica, sans-serif;
     }
     mat-card-content{
         font-size: 1em;
+        font-family: Elianto-Regular, Impact, sans-serif;
+        color: rgb(11, 56, 56);
+        .position {
+            color: black;
+            font-family: Roboto
+        }
     }
 }
 
 img {
-    width: 2em;
-    height: auto;
+    height: 3.3em;
+    width: auto;
 }
+.spacer{
+    margin: auto ;
+}
+
 .spinner {
     width: 100%;
     height: 20em;

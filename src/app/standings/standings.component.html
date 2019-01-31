@@ -6,7 +6,7 @@
   
   
 
-<table class="table table-dark">
+<table *ngIf="standings" class="table table-dark">
   <thead>
     <tr>
       <th>Position</th>
@@ -30,3 +30,9 @@
     </tr>
   </tbody>
 </table>
+<div *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
+  <p>You're probably browsing too fast (refer to Home page: Disclaimer)</p>
+  <h2>Reload Page</h2>
+</div>

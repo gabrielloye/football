@@ -1,11 +1,44 @@
 .container {
     margin: 2em auto;
     padding: 1em;
+    font-family: Montserrat
 }
-
+.main-info{
+    background-color:rgb(215, 253, 253);
+    border: 0.15em solid black;
+    padding: 1em;
+    border-radius:10%;
+    font-weight:bold;
+    color: rgb(14, 71, 71); 
+}
 img {
     height: 15em;
-    width: auto;
+        width: auto;
+        margin-bottom: 2em;
+}
+.logo-container{
+    width:6em;
+    img {
+        margin: auto;
+    }
+}
+mat-list {
+    background-color:rgb(241, 253, 253);
+    border-radius:12%;
+}
+h4{
+    font-family: Montserrat;
+}
+.league{
+    height: 2em;
+    width: auto;      
+}
+.modal-header {
+    background-color: rgb(17, 85, 85);
+    color: white;
+}
+.modal-footer {
+    background-color: rgba(17, 85, 85, 0.534);
 }
 .spinner {
     width: 100%;

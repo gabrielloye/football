@@ -1,12 +1,31 @@
 <div *ngIf="team" class="container">
-  <div class="row justify-content-between">
-    <div class="col-md-4 text-center">
-      <img src="{{team.crestUrl}}" alt="">
+  <div class="row justify-content-around">
+    <div class="col-md-5">
+      <div class="text-center main-info">
+        <img src="{{team.crestUrl}}" class="logo" alt="Team Crest">
         <p>Team Name: {{team.name}}</p>
+        <p>Founded: {{team.founded}}</p>
+        <p>Venue: {{team.venue}}</p>
+      </div>
+        <mat-list>
+          <mat-list-item>
+            <h4>Active Competitions:</h4>
+          </mat-list-item>
+          <mat-list-item *ngFor="let competition of team.activeCompetitions" role="listitem">
+            <div class="logo-container text-center">
+              <img src="/assets/images/{{competition.id}}.png" class="league">
+            </div>
+            {{competition.name}}
+          </mat-list-item>
+        </mat-list>
+        <p>Website: <a [href]="team.website">{{team.website}}</a></p>
         <p>Address: {{team.address}}</p>
-        <p>Last Updated: {{team.lastUpdated | date}}</p>
+        <div>
+          <a mat-raised-button [href]="team.phone"><i class="fa fa-phone"></i> Call</a>
+          <a mat-raised-button [href]="team.email"><i class="fa fa-envelope-o"></i> Email</a>
+        </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5">
       <ngb-accordion #acc="ngbAccordion">
         <ngb-panel>
           <ng-template ngbPanelTitle>
@@ -14,7 +33,29 @@
           </ng-template>
           <ng-template ngbPanelContent> 
             <div *ngFor="let player of team.squad">
-              <p *ngIf="player.position=='Goalkeeper'">{{player.shirtNumber}} {{player.name}}</p>
+              <p *ngIf="player.position=='Goalkeeper'">
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h3 class="modal-title">{{player.name}}</h3>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Name: {{player.name}}</p>
+                    <p>Nationality: {{player.nationality}}</p>
+                    <p>Date of birth: {{player.dateOfBirth|date}}</p>
+                    <p>Position: {{player.position}}</p>
+                    <p>Jersey Number: {{player.shirtNumber}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                  </div>
+                </ng-template>
+                <button class="btn" (click)="open(content)" appHighlight>
+                    <i class="fa fa-shirtsinbulk"></i>  {{player.name}}
+                </button>
+              </p>
             </div>
           </ng-template>
         </ngb-panel>
@@ -22,9 +63,31 @@
           <ng-template ngbPanelTitle>
             <span><i class="fa fa-shield"></i> Defenders</span>
           </ng-template>
-          <ng-template ngbPanelContent>
+          <ng-template ngbPanelContent> 
             <div *ngFor="let player of team.squad">
-              <p *ngIf="player.position=='Defender'"><i class="fa fa-shirtsinbulk"></i>{{player.shirtNumber}} {{player.name}}</p>
+              <p *ngIf="player.position=='Defender'">
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h3 class="modal-title">{{player.name}}</h3>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Name: {{player.name}}</p>
+                    <p>Nationality: {{player.nationality}}</p>
+                    <p>Date of birth: {{player.dateOfBirth|date}}</p>
+                    <p>Position: {{player.position}}</p>
+                    <p>Jersey Number: {{player.shirtNumber}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                  </div>
+                </ng-template>
+                <button class="btn" (click)="open(content)" appHighlight>
+                    <i class="fa fa-shirtsinbulk"></i>  {{player.name}}
+                </button>
+              </p>
             </div>
           </ng-template>
         </ngb-panel>
@@ -32,9 +95,31 @@
           <ng-template ngbPanelTitle>
             <span><i class="fa fa-futbol-o"></i> Midfielders</span>
           </ng-template>
-          <ng-template ngbPanelContent>
+          <ng-template ngbPanelContent> 
             <div *ngFor="let player of team.squad">
-              <p *ngIf="player.position=='Midfielder'">{{player.shirtNumber}} {{player.name}}</p>
+              <p *ngIf="player.position=='Midfielder'">
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h3 class="modal-title">{{player.name}}</h3>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Name: {{player.name}}</p>
+                    <p>Nationality: {{player.nationality}}</p>
+                    <p>Date of birth: {{player.dateOfBirth|date}}</p>
+                    <p>Position: {{player.position}}</p>
+                    <p>Jersey Number: {{player.shirtNumber}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                  </div>
+                </ng-template>
+                <button class="btn" (click)="open(content)" appHighlight>
+                    <i class="fa fa-shirtsinbulk"></i>  {{player.name}}
+                </button>
+              </p>
             </div>
           </ng-template>
         </ngb-panel>
@@ -42,16 +127,45 @@
           <ng-template ngbPanelTitle>
             <span><i class="fa fa-crosshairs"></i> Forwards</span>
           </ng-template>
-          <ng-template ngbPanelContent>
+          <ng-template ngbPanelContent> 
             <div *ngFor="let player of team.squad">
-              <p *ngIf="player.position=='Attacker'">{{player.shirtNumber}} {{player.name}}</p>
+              <p *ngIf="player.position=='Attacker'">
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h3 class="modal-title">{{player.name}}</h3>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Name: {{player.name}}</p>
+                    <p>Nationality: {{player.nationality}}</p>
+                    <p>Date of birth: {{player.dateOfBirth|date}}</p>
+                    <p>Position: {{player.position}}</p>
+                    <p>Jersey Number: {{player.shirtNumber}}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                  </div>
+                </ng-template>
+                <button class="btn" (click)="open(content)" appHighlight>
+                    <i class="fa fa-shirtsinbulk"></i>  {{player.name}}
+                </button>
+              </p>
             </div>
           </ng-template>
         </ngb-panel>
       </ngb-accordion>
+      <p>Last Updated: {{team.lastUpdated | date}}</p>
     </div> 
   </div>
 </div>
-<div [hidden]="team" class="spinner text-center">
+<div [hidden]="team || errMess" class="spinner text-center">
   <mat-spinner></mat-spinner><h4>Loading...</h4>
+</div>
+<div *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
+  <p>You're probably browsing too fast (refer to Home page: Disclaimer)</p>
+  <h2>Reload Page</h2>
 </div>

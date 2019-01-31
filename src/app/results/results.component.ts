@@ -12,6 +12,7 @@ export class ResultsComponent implements OnInit {
   ongoing: boolean;
   results: any[];
   moreresults=[];
+  errMess: string;
 
   constructor(private http: StandingsService) { }
 
@@ -20,7 +21,7 @@ export class ResultsComponent implements OnInit {
     .subscribe(info=>{this.ongoing=info['matches']==[];
     if (!this.ongoing) {
       this.matchday-=1
-    }})
+    }}, errmess => this.errMess = <any>errmess)
     this.http.getResult(this.matchday)
     .subscribe(result=>{
   this.http.getStandings().subscribe(standings=>{
@@ -37,7 +38,7 @@ export class ResultsComponent implements OnInit {
         }
       }
     }
-  }); this.results = result['matches'];})
+  }); this.results = result['matches'];}, errmess => this.errMess = <any>errmess)
   }
 
   loadMoreResults() {
@@ -58,6 +59,6 @@ export class ResultsComponent implements OnInit {
         }
       }
     }
-  }); this.moreresults.push(result['matches']);})
+  }); this.moreresults.push(result['matches']);},errmess => this.errMess = <any>errmess)
   }
 }
