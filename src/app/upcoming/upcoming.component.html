@@ -1,4 +1,4 @@
-<div *ngIf="matches" class="container text-center">
+<div *ngIf="matches" class="container text-center" [@expand]>
   <h2>Gameweek {{matches[0].matchday}}</h2>
   <mat-card *ngFor="let match of matches">
     <mat-card-title>

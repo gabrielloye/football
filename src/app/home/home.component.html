@@ -1,15 +1,90 @@
 <div class="container">
-  <h1 class="text-center">Under Construction</h1>
+  <h1 class="text-center"><i class="fa fa-wrench"></i>Under Construction<i class="fa fa-paint-brush"></i></h1>
   <h2>Disclaimer:</h2>
+  <p>
+    As I'm only using a free-tier subscription to <a href="https://www.football-data.org/">https://www.football-data.org/</a>,
+    the website can only handle a limited number requests per minute, thus you may encounter error
+    messages if you browse through the site too fast.
+  </p>
   <p>This site is merely a personal project for me to gain experience in using 
     Angular and by no means meant to provide completely accurate and up-to-date 
     information on the Premier League.
   </p>
-  <p>
-    As I'm only using a free-tier subscription to <a href="https://www.football-data.org/">https://www.football-data.org/</a>,
-    The website can only send 10 requests per minute, thus you may encounter error
-    messages if you browse through the site too fast.
-  </p>
+  <br>
+  <h2>Features</h2>
+    <ol>
+      <li>General</li>
+      <ul>
+        <li>HTTP Service</li>
+        <ul>
+          <li>Centralised service to make HTTP requests to <a href="https://www.football-data.org/">https://www.football-data.org/</a> API</li>
+          <li>Created service to managed error messages</li>
+          <li>Spinner graphic shown while data is being fetched</li>
+        </ul>
+        <li>Custom Attribute Directives</li>
+        <ul>
+          <li>Highlight directive that will add a class to the element when mouse hovers over</li>
+        </ul>
+        <li>Animations</li>
+        <ul>
+          Simple animations to give smoother transitions between components
+        </ul>
+        <li>Responsiveness</li>
+        <ul>
+          <li>The components of this SPA are designed to be readable in both mobile and desktop versions</li>
+          <li>Largely composed of ng-Bootstrap and Angular Material components with flex layout and Bootstrap Grid layout</li>
+        </ul>
+        <li>Design</li>
+        <ul>
+          <li>The main focus of the SPA was to utilise the various functionalities/tools of Angular</li>
+          <li>The aesthetic features of the site are therefore generally lacking</li>
+        </ul>
+      </ul>
+      <li><a routerLink="/home">Home</a></li>
+      <ul>
+        <li>Reactive Form</li>
+        <ul>
+          <li>Simple Reactive feedback form with relevant validators</li>
+          <li>Validation error messages appear below field</li>
+          <li>(Submitting form doesn't send the information anywhere)</li>
+        </ul>
+      </ul>
+      <li>Nav-bar</li>
+      <ul>
+        <li>Responsive Angular Material nav-bar turns into side-nav for smaller screens</li>
+        <li>Provides router links to all the various components</li>
+      </ul>
+      <li><a routerLink="/standings">Standings</a></li>
+      <ul>
+        <li>ng-Bootstrap Carousel component used to display images/position of top teams</li>
+        <li>The league table fetched from the API is up-to-date and provides links to individual team details</li>
+      </ul>
+      <li><a routerLink="/schedule">Schedule</a></li>
+      <ul>
+        <li>Holds the Top Scorer, Schedule and Results components</li>
+        <li>Top scorer table request is sent first to obtain current matchday and top scorer information</li>
+        <li>Schedule and Results components take the current matchday information as input to process requests</li>
+        <li>View more matches button at the bottom will load the future/past match data</li>
+        <li>Angular Material tabs component used to toggle between schedule/results</li>
+        <li>Links to individual teams provided</li>
+      </ul>
+      <li><a routerLink="/teams">Teams</a></li>
+      <ul>
+        <li>Mat-card module used to format the team cards</li>
+        <li>Links to individual team page via "/teamdetails/:id"</li>
+      </ul>
+      <li>Individual Team Details</li>
+      <ul>
+        <li>ng-Bootstrap accordion used to display players (grouped by position)</li>
+        <li>Clicking on player names links to modal which displays more information on the player</li>
+      </ul>
+      <li>Possible extensions</li>
+      <ul>
+        <li>Footer</li>
+        <li>Search bar</li>
+      </ul>
+      
+    </ol>
 </div>
 <div class="container form-container">
   <app-feedback></app-feedback>

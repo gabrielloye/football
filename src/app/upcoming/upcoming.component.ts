@@ -1,10 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StandingsService } from '../services/standings.service' 
+import { expand } from '../animations/animations'
 
 @Component({
   selector: 'app-upcoming',
   templateUrl: './upcoming.component.html',
-  styleUrls: ['./upcoming.component.scss']
+  styleUrls: ['./upcoming.component.scss'],
+  animations: [
+    expand()
+  ]
 })
 export class UpcomingComponent implements OnInit {
 

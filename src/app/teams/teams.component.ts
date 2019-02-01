@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { StandingsService } from '../services/standings.service'
+import { expand } from '../animations/animations'
 
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
-  styleUrls: ['./teams.component.scss']
+  styleUrls: ['./teams.component.scss'],
+  animations: [
+    expand()
+  ]
 })
 export class TeamsComponent implements OnInit {
 

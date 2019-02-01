@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { StandingsService } from '../services/standings.service' 
+import { StandingsService } from '../services/standings.service' ;
+import { flyInOut, expand } from '../animations/animations'
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.scss']
+  styleUrls: ['./schedule.component.scss'],
+  animations: [
+    flyInOut(), expand()
+  ]
 })
 export class ScheduleComponent implements OnInit {
 

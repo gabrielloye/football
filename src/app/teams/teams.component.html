@@ -1,4 +1,4 @@
-<div *ngIf="teams" class="container">
+<div *ngIf="teams" class="container" [@expand]>
   <div class="row justify-content-center">
     <div class="col-xs-1-12"  *ngFor="let team of teams">
       <div class="card" [routerLink]="['/teamdetails',team.id]" appHighlight>

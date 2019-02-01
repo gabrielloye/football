@@ -1,4 +1,4 @@
-<div class="container text-center" *ngIf="matchday && scorers">
+<div class="container text-center" *ngIf="matchday && scorers" [@expand]>
   <h3>Current Matchday: {{matchday}}</h3>
   <mat-table [dataSource]="scorers" class="mat-elevation-z8">
     <ng-container matColumnDef="numberOfGoals">

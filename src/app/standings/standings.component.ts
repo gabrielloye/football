@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { StandingsService } from '../services/standings.service'
+import { flyInOut } from '../animations/animations';
 
 @Component({
   selector: 'app-standings',
   templateUrl: './standings.component.html',
-  styleUrls: ['./standings.component.scss']
+  styleUrls: ['./standings.component.scss'],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+  animations: [
+    flyInOut()
+  ]
 })
 export class StandingsComponent implements OnInit {
 

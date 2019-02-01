@@ -5,9 +5,19 @@
 .sidenav {
   width: 200px;
 }
-
+mat-sidenav {
+  background-color: rgb(17, 85, 85);
+  mat-nav-list a{
+    color: white;
+    font-family: Montserrat, Georgia, sans-serif;
+    i{
+      margin: 0 0.2em;
+    }
+  }
+}
 .sidenav .mat-toolbar {
-  background: inherit;
+  background-color: rgb(4, 24, 24);
+  color:white;
 }
 
 mat-toolbar{
@@ -30,7 +40,7 @@ mat-toolbar{
   display: none;
 }
 mat-toolbar a {
-  font-family: Montserrat, Impact, sans-serif;
+  font-family: Montserrat, Georgia, sans-serif;
   font-weight: 600;
   font-size: 1.2rem;
   color: white;
