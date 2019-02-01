@@ -17,8 +17,10 @@ body {
     font-family: Elianto-Regular;
     src: url(assets/font/Elianto-Regular.otf) format("opentype");
   }
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face{
+    font-family: Montserrat;
+    src: url(assets/font/Montserrat.ttf) format("opentype");
+}
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import 'variables';
 @import '../node_modules/font-awesome/scss/font-awesome';

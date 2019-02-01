@@ -4,32 +4,34 @@
     </div>
   </div>
   
-  
+<div class="table-responsive">
+  <table *ngIf="standings" class="table table-dark">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Win</th>
+        <th>Loss</th>
+        <th>Draw</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of standings">
+        <td>{{item.position}}</td>
+        <td [routerLink]="['/teamdetails',item.team.id]" appHighlight><img src="{{item.team.crestUrl}}"> <span>{{item.team.name}}</span></td>
+        <td>{{item.playedGames}}</td>
+        <td>{{item.won}}</td>
+        <td>{{item.lost}}</td>
+        <td>{{item.draw}}</td>
+        <td>{{item.points}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<table *ngIf="standings" class="table table-dark">
-  <thead>
-    <tr>
-      <th>Position</th>
-      <th>Team</th>
-      <th>Played</th>
-      <th>Win</th>
-      <th>Loss</th>
-      <th>Draw</th>
-      <th>Points</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of standings">
-      <td>{{item.position}}</td>
-      <td [routerLink]="['/teamdetails',item.team.id]" appHighlight><img src="{{item.team.crestUrl}}"> <span>{{item.team.name}}</span></td>
-      <td>{{item.playedGames}}</td>
-      <td>{{item.won}}</td>
-      <td>{{item.lost}}</td>
-      <td>{{item.draw}}</td>
-      <td>{{item.points}}</td>
-    </tr>
-  </tbody>
-</table>
+
 <div *ngIf="errMess">
   <h2>Error</h2>
   <h4>{{errMess}}</h4>
