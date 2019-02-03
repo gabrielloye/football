@@ -1,10 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StandingsService } from '../services/standings.service' 
+import { expand } from '../animations/animations'
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
-  styleUrls: ['./results.component.scss']
+  styleUrls: ['./results.component.scss'],
+  animations: [
+    expand()
+  ]
 })
 export class ResultsComponent implements OnInit {
 
@@ -17,12 +21,15 @@ export class ResultsComponent implements OnInit {
   constructor(private http: StandingsService) { }
 
   ngOnInit() {
+    this.loadResults()
+  }
+
+  loadResults () {
     this.http.getResult(this.matchday)
     .subscribe(info=>{this.ongoing=info['matches']==[];
     if (!this.ongoing) {
-      this.matchday-=1
-    }}, errmess => this.errMess = <any>errmess)
-    this.http.getResult(this.matchday)
+      this.matchday-=1;
+      this.http.getResult(this.matchday)
     .subscribe(result=>{
   this.http.getStandings().subscribe(standings=>{
     var x;
@@ -39,6 +46,9 @@ export class ResultsComponent implements OnInit {
       }
     }
   }); this.results = result['matches'];}, errmess => this.errMess = <any>errmess)
+
+    }}, errmess => this.errMess = <any>errmess)
+    
   }
 
   loadMoreResults() {

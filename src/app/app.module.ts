@@ -30,8 +30,22 @@ import { MatCardModule } from '@angular/material/card';
 import { ResultsComponent } from './results/results.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { ReactiveFormsModule } from '@angular/forms'
-import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { StandingsService } from './services/standings.service';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { AuthGuard } from './shared/auth.guard';
+import { UserComponent } from './user/user.component';
+import { RegisterComponent } from './register/register.component';
+import { UserResolver } from './user/user.resolver';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -47,9 +61,13 @@ import {MatInputModule} from '@angular/material/input';
     HighlightDirective,
     UpcomingComponent,
     ResultsComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    LoginComponent,
+    UserComponent,
+    RegisterComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     AppRoutingModule,
     NgbCarouselModule,
@@ -71,9 +89,16 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
     MatSliderModule,
-    NgbModalModule
+    NgbModalModule,
+    MatDialogModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [StandingsService, AuthService, UserService, AuthGuard, UserResolver],
+  entryComponents: [
+    LoginComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

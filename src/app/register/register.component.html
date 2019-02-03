@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  Create New Account
+<span class="flex-spacer"></span>
+<button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+<form novalidate [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+  <div class="form-group">
+    <label for="name">Name:</label><br>
+    <input matInput placeholder='Name' type="name" formControlName="name" required>
+    <mat-error *ngIf="formErrors.name">{{formErrors.name}}</mat-error>
+  </div>
+  <div class="form-group">
+    <label for="email">Email Address:</label><br>
+    <input matInput type="email" placeholder="Email" formControlName="email" required email>
+    <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+  </div>
+  <div class="form-group">
+      <label for="password">Password:</label><br>
+      <input matInput placeholder="******" type="password" formControlName="password" required password>
+      <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+      <label class="error">{{errorMessage}}</label>
+  </div>
+  <div class="form-group">
+    <button [disabled]=registerForm.invalid mat-button type="submit" class="btn-primary"><span class="button-text">Submit</span></button>
+  </div>
+</form>

@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component'
 import { ScheduleComponent } from './schedule/schedule.component'
 import { TeamsComponent } from './teams/teams.component'
 import { TeamdetailsComponent } from './teamdetails/teamdetails.component'
+import { UserComponent } from './user/user.component';
+import { UserResolver } from './user/user.resolver';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -13,7 +15,8 @@ const routes: Routes = [
   { path: 'schedule', component: ScheduleComponent},
   { path: 'teams', component: TeamsComponent},
   { path: 'teamdetails/:id', component: TeamdetailsComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'user', component: UserComponent, resolve: {data: UserResolver}}
 ];
 
 @NgModule({

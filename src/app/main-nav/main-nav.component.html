@@ -11,7 +11,10 @@
       <a mat-list-item routerLink="/standings"><i class="fa fa-trophy"></i>   Standings</a>
       <a mat-list-item routerLink="/schedule"><i class="fa fa-calendar"></i>   Schedule</a>
       <a mat-list-item routerLink="/teams"><i class="fa fa-users"></i>Teams</a>
+      <button mat-button class="btn-primary" *ngIf="!isLoggedIn" (click)="openLogin()">Login</button>
+      <button mat-button *ngIf="isLoggedIn" (click)="logout()"  class="btn-primary">Log out</button>
     </mat-nav-list>
+    
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
@@ -34,8 +37,15 @@
         <a routerLinkActive="highlighted" routerLink="/schedule"><i class="fa fa-calendar"></i> Schedule</a>
         <span class="divider">|</span>
         <a routerLinkActive="highlighted" routerLink="/teams"><i class="fa fa-users"></i> Teams</a>
+        
       </div>
-      
+      <div *ngIf="!(isHandset$ | async)">
+        <button mat-button class="btn-primary" *ngIf="!isLoggedIn" (click)="openLogin()">Login</button>
+        <button mat-button *ngIf="isLoggedIn"  class="btn-primary" [matMenuTriggerFor]="menu">{{name}}</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>
