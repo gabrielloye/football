@@ -43,6 +43,7 @@
         <button mat-button class="btn-primary" *ngIf="!isLoggedIn" (click)="openLogin()">Login</button>
         <button mat-button *ngIf="isLoggedIn"  class="btn-primary" [matMenuTriggerFor]="menu">{{name}}</button>
         <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/user">User page</button>
           <button mat-menu-item (click)="logout()">Logout</button>
         </mat-menu>
       </div>
