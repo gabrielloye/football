@@ -21,14 +21,22 @@ export class ResultsComponent implements OnInit {
   constructor(private http: StandingsService) { }
 
   ngOnInit() {
-    this.loadResults()
+    this.displayResults()
+  }
+
+  displayResults() {
+    this.http.getResult(this.matchday)
+    .subscribe(result => {
+      if(result['count'] === 0) {
+        this.matchday -=1;
+        this.loadResults()
+      } else {
+        this.loadResults()
+      }
+    })
   }
 
   loadResults () {
-    this.http.getResult(this.matchday)
-    .subscribe(info=>{this.ongoing=info['matches']==[];
-    if (!this.ongoing) {
-      this.matchday-=1;
       this.http.getResult(this.matchday)
     .subscribe(result=>{
   this.http.getStandings().subscribe(standings=>{
@@ -46,9 +54,7 @@ export class ResultsComponent implements OnInit {
       }
     }
   }); this.results = result['matches'];}, errmess => this.errMess = <any>errmess)
-
-    }}, errmess => this.errMess = <any>errmess)
-    
+    , errmess => this.errMess = <any>errmess 
   }
 
   loadMoreResults() {

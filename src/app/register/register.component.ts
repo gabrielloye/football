@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
    },
    'password' : {
      'required': 'Password is required',
-     'minlength': 'Password must have at least 8 characters'
+     'minlength': 'Password must have at least 6 characters'
    }
   }
 
@@ -58,16 +58,15 @@ export class RegisterComponent implements OnInit {
   }
 
   register(value) {
-    console.log(value)
     this.authService.doRegister(value)
-    .then(res => {console.log(res);
-      this.authService.doLogin(value)
+    .then(res => {this.authService.doLogin(value)
       .subscribe(res=>{
         this.router.navigate(['/user']);
         this.dialogRef.close();
         this.userService.updateCurrentUser(value)
         .then(res => {
           console.log(res)
+          location.reload()
         })
       })
       },
