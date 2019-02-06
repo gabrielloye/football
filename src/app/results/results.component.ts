@@ -29,10 +29,10 @@ export class ResultsComponent implements OnInit {
     .subscribe(result => {
       if(result['count'] === 0) {
         this.matchday -=1;
+        this.displayResults()
+        return;
+      } 
         this.loadResults()
-      } else {
-        this.loadResults()
-      }
     })
   }
 

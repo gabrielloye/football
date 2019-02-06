@@ -46,7 +46,9 @@ import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { UserResolver } from './user/user.resolver';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { SearchComponent } from './search/search.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { MatMenuModule } from '@angular/material/menu';
     FeedbackComponent,
     LoginComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    SearchComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -93,7 +96,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDialogModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    MatMenuModule
+    MatMenuModule,
+    MatAutocompleteModule,
+    FormsModule
   ],
   providers: [StandingsService, AuthService, UserService, AuthGuard, UserResolver],
   entryComponents: [

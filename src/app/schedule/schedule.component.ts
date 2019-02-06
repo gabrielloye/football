@@ -13,9 +13,8 @@ import { flyInOut, expand } from '../animations/animations'
 export class ScheduleComponent implements OnInit {
 
   scorers: any;
-  matchday: number;
+  public matchday: number;
   displayedColumns: string[] = ['player', 'team', 'numberOfGoals'];
-  index = Array.from({length: 5}, (v, k) => k+1); 
   errMess: string;
 
   constructor(private http: StandingsService) { }
