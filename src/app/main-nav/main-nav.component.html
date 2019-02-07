@@ -40,6 +40,11 @@
         
       </div>
       <div *ngIf="!(isHandset$ | async)">
+        <button mat-button class="btn-primary" [matMenuTriggerFor]="search"><i class="fa fa-search"></i></button>
+        <mat-menu #search="matMenu" class="search-menu">
+          <app-search></app-search>
+        </mat-menu>
+        <span style="color:rgb(17, 85, 85)">-</span>
         <button mat-button class="btn-primary" *ngIf="!isLoggedIn" (click)="openLogin()">Login</button>
         <button mat-button *ngIf="isLoggedIn"  class="btn-primary" [matMenuTriggerFor]="menu">{{name}}</button>
         <mat-menu #menu="matMenu">
