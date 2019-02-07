@@ -741,6 +741,8 @@ firebase/auth
 
 @angular/material/menu
 
+@angular/material/autocomplete
+
 @angular/material/sidenav
 
 zone.js
