@@ -8,7 +8,7 @@ import { flyInOut, expand } from '../animations/animations'
   styleUrls: ['./schedule.component.scss'],
   animations: [
     flyInOut(), expand()
-  ]
+  ],
 })
 export class ScheduleComponent implements OnInit {
 

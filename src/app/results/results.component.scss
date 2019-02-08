@@ -18,7 +18,7 @@ mat-card {
     margin: 1.2em;
     flex-direction: column;
     border-radius: 10%;
-    background-color: rgba(0, 217, 255, 0.082);
+    background-color: rgb(200, 244, 252);
     mat-card-title{
         font-size: 1em;
         background-color:rgb(17, 85, 85);
@@ -65,5 +65,12 @@ img {
     }
     h4 {
         margin: 2em auto;
+    }
+}
+
+.loadmore {
+    color: white;
+    button {
+        font-family: Montserrat
     }
 }

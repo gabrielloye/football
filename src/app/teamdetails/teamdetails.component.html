@@ -18,8 +18,8 @@
             {{competition.name}}
           </mat-list-item>
         </mat-list>
-        <p>Website: <a [href]="team.website">{{team.website}}</a></p>
-        <p>Address: {{team.address}}</p>
+        <p class="otext">Website: <a [href]="team.website">{{team.website}}</a></p>
+        <p class="otext">Address: {{team.address}}</p>
         <div>
           <a mat-raised-button [href]="team.phone"><i class="fa fa-phone"></i> Call</a>
           <a mat-raised-button [href]="team.email"><i class="fa fa-envelope-o"></i> Email</a>
@@ -156,8 +156,7 @@
           </ng-template>
         </ngb-panel>
       </ngb-accordion>
-      <p>Manager: {{team.squad[team.squad.length-1].name}}</p>
-      <p>Last Updated: {{team.lastUpdated | date}}</p>
+      <p class="otext">Last Updated: {{team.lastUpdated | date}}</p>
     </div> 
   </div>
 </div>

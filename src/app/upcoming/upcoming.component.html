@@ -21,10 +21,10 @@
         <div fxLayout="row"
         fxLayoutGap="1.5em">
           <div fxFlex class="position">
-            <p>League Position {{match.homeTeam.position}}</p> 
+            <p>Current Position {{match.homeTeam.position}}</p> 
           </div>
           <div fxFlex class="position">
-            <p>League Position {{match.awayTeam.position}}</p>
+            <p>Current Position {{match.awayTeam.position}}</p>
           </div>
         </div>
       </div>
@@ -58,10 +58,10 @@
           <div fxLayout="row"
           fxLayoutGap="1.5em">
             <div fxFlex fxLayout class="position">
-              <p>Curent Position {{match.homeTeam.position}}</p> 
+              <p>Current Position {{match.homeTeam.position}}</p> 
             </div>
             <div fxFlex class="position">
-              <p>Curent Position {{match.awayTeam.position}}</p>
+              <p>Current Position {{match.awayTeam.position}}</p>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
   <p>You're probably browsing too fast (refer to Home page: Disclaimer)</p>
   <h2>Reload Page</h2>
 </div>
-<div *ngIf="matches" class="text-center">
-    <button mat-button (click)="loadMoreMatches()"><i class="fa fa-chevron-circle-down"></i><br>View more Matches</button>
+<div *ngIf="matches" class="text-center loadmore">
+  <button mat-button (click)="loadMoreMatches()"><i class="fa fa-chevron-circle-down"></i><br>View more Matches</button>
 </div>
 
