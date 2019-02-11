@@ -10,10 +10,10 @@ import { UserComponent } from './user/user.component';
 import { UserResolver } from './user/user.resolver';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
+  { path: 'home', component: HomeComponent, data: {animation: 'HomePage'}},
   { path: 'standings', component: StandingsComponent },
   { path: 'schedule', component: ScheduleComponent},
-  { path: 'teams', component: TeamsComponent},
+  { path: 'teams', component: TeamsComponent, data: {animation: 'TeamsPage'}},
   { path: 'teamdetails/:id', component: TeamdetailsComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'user', component: UserComponent, resolve: {data: UserResolver}}

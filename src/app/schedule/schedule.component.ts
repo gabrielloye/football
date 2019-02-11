@@ -6,6 +6,10 @@ import { flyInOut, expand } from '../animations/animations'
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.scss'],
+  host: {
+    '[@flyInOut]' : 'true',
+    'style' : 'display: flex',
+  },
   animations: [
     flyInOut(), expand()
   ],

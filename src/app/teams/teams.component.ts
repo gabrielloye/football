@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { StandingsService } from '../services/standings.service'
-import { expand } from '../animations/animations'
+import { expand, flyInOut } from '../animations/animations'
 
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.scss'],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: flex, position: absolute;'
+    },
   animations: [
-    expand()
+    expand(),
+    flyInOut()
   ]
 })
 export class TeamsComponent implements OnInit {

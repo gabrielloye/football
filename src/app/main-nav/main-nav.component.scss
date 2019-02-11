@@ -1,8 +1,10 @@
 .sidenav-container {
   height: 100%;
-  background-image: url(../../assets/images/pitch.jpg);
+  width: 100%;
+  background: url(../../assets/images/pitch.jpg) center center fixed;
   background-size: cover;
   background-position: center top;
+  bottom: 0;
 }
 
 .sidenav {
